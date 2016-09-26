@@ -1,5 +1,18 @@
 package interview;
-
+/*
+ * Question: Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+ *           You are given a target value to search. If found in the array return its index,
+ *           otherwise return -1. You may assume no duplicate exists in the array.
+ *           
+ * Solution: Using binary search with extra if conditions. check which side of mid point is sorted by comparing the mid point and staring point
+ *           (condition 1. starting point is less then mid point, then  left side is sorted else right side is sorted) then check if target key lies
+ *            in sorted part of array and  go on applying binary search on the sorted side, if the target key lies in unsorted side, 
+ *            then go on checking within unsorted side which part is sorted and applying binary search
+ *            
+ * complexity Time: O(logn)
+ *           
+ *  
+ */
 import java.util.*;
 public class Leet_Search_in_Rotated_Sorted_Array {
 	public static void main(String[] args){
