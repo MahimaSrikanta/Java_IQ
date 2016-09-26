@@ -8,10 +8,10 @@ package interview;
  * Example of String permutation are :
  * Permuation of ABC  : ABC,ACB,BAC,BCA,CAB,CBA  
  * 
- * This can also be implemented using hashtable
  * 
- * complexity Time: O(nlogn);
- * Space: more than O(1);
+ * 
+ * complexity Time: O(n);
+ *
  * 
  */
 import java.util.Scanner;
@@ -22,7 +22,12 @@ public class CCI_StringPermutation {
 		Scanner input = new Scanner(System.in);
 	     String name1 = input.nextLine();
 	     String name2 = input.nextLine();
-	     boolean result = checkPermute(name1,name2);
+	    if( checkPermute(name1,name2)){
+	    	System.out.println("Its a permuation");
+	    }
+	    else{
+	    	System.out.println("Not a Permuation");
+	    }
 	}
 	
 	  public static boolean checkPermute(String name1 , String name2){
@@ -34,17 +39,17 @@ public class CCI_StringPermutation {
 			 Arrays.sort(char2);
 	     
 	      if(Arrays.equals(char1, char2) ){
-	    	  System.out.println("Its a Palindrome");
+	    	  
 	    	  return true;
 	      }
 	      else{
-	    	  System.out.println("Not a Palindrome");
+	    	  
 	    	  return false;
 	      }
 	      
 	     }
 	     else{
-	    	 System.out.println("Not a Palindrome");
+	    	 
 	    	 return false;
 	     }
 			 

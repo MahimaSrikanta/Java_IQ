@@ -11,9 +11,9 @@ package interview;
  * Example of String permutation are :
  * Permuation of ABC  : ABC,ACB,BAC,BCA,CAB,CBA  
  * 
- * This can also be implemented using hashtable
+ * This can also be implemented using hash table
  * 
- * complexity Time: O(nlogn);
+ * complexity Time: O(n);
  * 
  * 
  */
@@ -34,29 +34,33 @@ public class CCI_StringPermuation2 {
 		}
 		
 	}
+	//function to check permutation
 	public static boolean checkPermutation(String s1, String s2){
+		//If string are of unequal length, then return false
 		if(s1.length() != s2.length()){
 			return false;
 		}
+		
+		// HashMap to store  each char of string as key and its count as value
 		Map<Character, Integer> mapper = new HashMap<>();
-		for(int i =0; i < s1.length(); i++){
-			char key = s1.charAt(i);
-			if (mapper.containsKey(key)){
-				int value = mapper.get(key)+1;
-				mapper.put(key,value);
+		for(char c:s1.toCharArray()){
+			if (mapper.containsKey(c)){
+				int value = mapper.get(c)+1;
+				mapper.put(c,value);
 				
 			}
 			else{
-			mapper.put(key, 1);
+			mapper.put(c, 1);
 		    }
 					
 	    }
 		
-		for(int i =0; i < s2.length(); i++){
-			char key = s2.charAt(i);
-			if (mapper.containsKey(key)){
-				int value = mapper.get(key)-1;
-				mapper.put(key,value);
+		// Checks Same Hashmap with each char of string as key and its  value as count -1
+		for(char c:s2.toCharArray()){
+			
+			if (mapper.containsKey(c)){
+				int value = mapper.get(c)-1;
+				mapper.put(c,value);
 				
 			}
 			else{
